@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+  x11apps:
+    image: x11-gui-app:latest
+    build: 
+      context: ./x11app
+      dockerfile: Dockerfile
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command:
+      - xclock
+    networks:
+        - dockergui
+    #network_mode: host
+  
+  opencvapp:
+    image: opencv-gui-app:latest
+    build: 
+      context: ./opencvapp
+      dockerfile: Dockerfile
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command:
+      - "/src/show.py"
+    networks:
+        - dockergui
+    #network_mode: host
+
+networks:
+    dockergui:
