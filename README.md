@@ -15,3 +15,6 @@ docker-compose up
 ```
 docker-compose down
 ```
+
+# Output
+![Running Gedit](app_img.jpg "Gui Docker Out")

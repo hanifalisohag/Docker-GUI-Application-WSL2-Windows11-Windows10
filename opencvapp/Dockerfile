@@ -27,7 +27,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN (apt-get autoremove -y; \
      apt-get autoclean -y)  
 
-ENV QT_X11_NO_MITSHM=1
+#ENV QT_X11_NO_MITSHM=1
 COPY . .
 ENTRYPOINT ["python"]
 CMD ["/src/show.py"]
